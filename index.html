@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxe.store</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="logo">Luxe<span>.</span>store</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#products">Products</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button class="cart-btn" onclick="toggleCart()">
+        <span>Cart</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-text">
+      <span class="hero-badge">New Collection 2026</span>
+      <h1>Discover<br />Premium Picks</h1>
+      <p>Handpicked products with quality you can feel. From everyday essentials to luxury finds — all in one place.</p>
+      <button class="hero-cta" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+      <div class="hero-stats">
+        <div class="stat-item"><div class="stat-num">2.4k+</div><div class="stat-label">Happy customers</div></div>
+        <div class="stat-item"><div class="stat-num">120+</div><div class="stat-label">Products</div></div>
+        <div class="stat-item"><div class="stat-num">4.9</div><div class="stat-label">Avg. rating</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">🛍️</div>
+  </div>
+
+  <div class="main" id="products">
+    <div class="section-header">
+      <span class="section-title">Featured Products</span>
+    </div>
+    <div class="filter-row">
+      <button class="filter-btn active" onclick="filter('all', this)">All</button>
+      <button class="filter-btn" onclick="filter('tech', this)">Tech</button>
+      <button class="filter-btn" onclick="filter('fashion', this)">Fashion</button>
+      <button class="filter-btn" onclick="filter('home', this)">Home</button>
+      <button class="filter-btn" onclick="filter('beauty', this)">Beauty</button>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+
+  <div class="backdrop" id="backdrop" onclick="toggleCart()"></div>
+  <div class="cart-overlay" id="cartOverlay">
+    <div class="cart-header">
+      <span class="cart-title">Your Cart</span>
+      <button class="close-btn" onclick="toggleCart()">&#x2715;</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="cart-total"><span>Total</span><span id="cartTotal">$0.00</span></div>
+      <button class="checkout-btn" onclick="checkout()">Checkout</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
